@@ -66,7 +66,7 @@ class Sin:public Operacion{
             return std::sin(c);
         } 
         std::string nombreOperacion() const override{
-            return "Sin";
+            return "Sen";
         }
 };
 
@@ -114,59 +114,73 @@ class Square:public Operacion{
         }
 };
 
-//--- 
-class Suma:public Operacion{
+//--- ArcSin
+class ArcSin:public Operacion{
+    public:
+        double calcular1(double c) override{
+            return asin(c);
+        } 
+        std::string nombreOperacion() const override{
+            return "ArcSen";
+        }
+};
+
+//--- ArcCos
+class ArcCos:public Operacion{
+    public:
+        double calcular1(double c) override{
+            return acos(c);
+        } 
+        std::string nombreOperacion() const override{
+            return "ArcCos";
+        }
+};
+
+//--- ArcTan
+class ArcTan:public Operacion{
+    public:
+        double calcular1(double c) override{
+            return atan(c);
+        } 
+        std::string nombreOperacion() const override{
+            return "ArcTan";
+        }
+};
+
+
+//--- Exponent
+class Exponent:public Operacion{
     public:
         double calcular(double a, double b) override{
-            return a+b;
+            return pow(a,b);
         } 
         std::string nombreOperacion() const override{
             return "Suma";
         }
 };
 
-//--- Suma
-class Suma:public Operacion{
+
+//--- Permutación
+class Perm:public Operacion{
     public:
         double calcular(double a, double b) override{
-            return a+b;
+            return (tgamma(a+1))/(tgamma(a-b+1));
         } 
         std::string nombreOperacion() const override{
-            return "Suma";
+            return "Permutación";
         }
 };
 
-//--- Suma
-class Suma:public Operacion{
+//--- Combinación
+class Comb:public Operacion{
     public:
         double calcular(double a, double b) override{
-            return a+b;
+            return (tgamma(a+1))/(tgamma(a-b+1)*tgamma(b+1));
         } 
         std::string nombreOperacion() const override{
-            return "Suma";
+            return "Combinación";
         }
 };
-
-
-//--- Suma
-class Suma:public Operacion{
-    public:
-        double calcular(double a, double b) override{
-            return a+b;
-        } 
-        std::string nombreOperacion() const override{
-            return "Suma";
-        }
-};
-
-
-
-
-
-
-
-
-
 /* Una clase que gestione las operaciones disponibles*/
 
 class Calculadora{
@@ -175,10 +189,21 @@ class Calculadora{
     public:
         //Metodo constructor mas detallado
         Calculadora(){
-            operaciones.push_back(std::make_unique<Suma>());
-            operaciones.push_back(std::make_unique<Resta>());
-            operaciones.push_back(std::make_unique<Producto>());
-            operaciones.push_back(std::make_unique<Division>());       
+        	operaciones.push_back(std::make_unique<Suma>());
+        	operaciones.push_back(std::make_unique<Resta>());
+        	operaciones.push_back(std::make_unique<Producto>());
+        	operaciones.push_back(std::make_unique<Division>()); 
+        	operaciones.push_back(std::make_unique<Sin>());    
+        	operaciones.push_back(std::make_unique<Cos>());    
+		operaciones.push_back(std::make_unique<Tan>());    
+		operaciones.push_back(std::make_unique<Sqrt>());    
+        	operaciones.push_back(std::make_unique<Square>());    
+           	operaciones.push_back(std::make_unique<ArcSin>());    
+           	operaciones.push_back(std::make_unique<ArcCos>());    
+           	operaciones.push_back(std::make_unique<ArcTan>());    
+           	operaciones.push_back(std::make_unique<Exponent>());    
+           	operaciones.push_back(std::make_unique<Perm>());    
+           	operaciones.push_back(std::make_unique<Comb>());    
         }
     void mostrarMenu() const{
         std::cout<<"Selecciones una operaciòn:"<<std::endl;
