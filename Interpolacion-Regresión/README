@@ -1,0 +1,11 @@
+Existen notorias diferencias entre interpolar y hacer la regresión de un conjunto de datos.
+
+La interpolación usa una base polinomica para obtener una curva que pase si o si por los puntos dados, la regresión sigue una tendencia.
+
+Tarea:
+
+POO - una función que construya las funciones cardinales y las grafiqué, que construya el polinomio interpolante.
+
+------------------------------------------------------///-------------------------------------------------------------------------------
+
+La interpolación 
